@@ -4,11 +4,14 @@ import React, {Component} from "react";
 import {styles} from "../constants/appConstants";
 import assignmentServiceClient from "../services/assignmentService";
 
+/**
+ * EDitor component for assignments
+ */
 export default class AssignmentEditor
     extends Component {
 
     static navigationOptions = {
-        title: 'New Assignment',
+        title: 'Assignment',
         headerStyle: {
             backgroundColor: 'rebeccapurple'
         },
@@ -30,6 +33,9 @@ export default class AssignmentEditor
         this.updateForm = this.updateForm.bind(this);
     }
 
+    /**
+     * Determines if it is editing or creating on load
+     */
     componentDidMount() {
         if (this.state.assignmentId !== null) {
             this.assignmentService
@@ -45,10 +51,17 @@ export default class AssignmentEditor
         }
     }
 
+    /**
+     * Callback to widget page
+     */
     componentWillUnmount() {
         this.state.refreshParent();
     }
 
+    /**
+     * Update state
+     * @param update
+     */
     updateForm(update) {
         this.setState(update);
     }

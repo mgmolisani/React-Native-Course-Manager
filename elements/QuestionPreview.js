@@ -3,6 +3,9 @@ import {Divider, Text} from "react-native-elements";
 import React, {Component} from "react";
 import {styles} from "../constants/appConstants";
 
+/**
+ * Render the generic preview elements of a question
+ */
 export default class QuestionPreview
     extends Component {
 

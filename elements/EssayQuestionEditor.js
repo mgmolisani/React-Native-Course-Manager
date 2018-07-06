@@ -4,9 +4,11 @@ import {View} from "react-native";
 import {styles} from "../constants/appConstants";
 import {FormInput, FormLabel} from "react-native-elements";
 
+/**
+ * Element to handle essay specific editing
+ */
 export default class EssayQuestionEditor
     extends Component {
-
 
     render() {
         return (

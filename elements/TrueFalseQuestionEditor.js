@@ -3,6 +3,9 @@ import {CheckBox} from "react-native-elements";
 import {View} from "react-native";
 import QuestionPreview from "./QuestionPreview";
 
+/**
+ * Element to handle true or false specific editing
+ */
 export default class TrueFalseQuestionEditor
     extends Component {
 

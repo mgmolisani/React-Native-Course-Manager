@@ -3,6 +3,13 @@ import {ListItem} from "react-native-elements";
 import {LESSON_API_URL} from "../constants/apiConstants";
 import React, {Component} from "react";
 
+/**
+ * FInd all the lessons for a module service
+ * @param courseId the course
+ * @param moduleId the module
+ * @param callback
+ * @returns {Promise<T>}
+ */
 function findAllLessonsForModule(courseId, moduleId, callback) {
     return fetch(LESSON_API_URL
         .replace('CID', courseId)
@@ -12,6 +19,9 @@ function findAllLessonsForModule(courseId, moduleId, callback) {
         }).then(callback);
 }
 
+/**
+ * Represents a lesson list
+ */
 export default class ModuleList
     extends Component {
 
@@ -29,6 +39,9 @@ export default class ModuleList
         }
     }
 
+    /**
+     * Gets all the lessons on load
+     */
     componentDidMount() {
         findAllLessonsForModule(
             this.state.courseId,
@@ -38,6 +51,10 @@ export default class ModuleList
             });
     }
 
+    /**
+     * Sets the lessons to the state
+     * @param lessons
+     */
     setLessons(lessons) {
         this.setState({
             lessons: lessons.reduce((stateLessons, lesson) => {

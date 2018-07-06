@@ -8,6 +8,9 @@ function errorCallback(data) {
     throw new Error(data.message);
 }
 
+/**
+ * Widget services
+ */
 export default class WidgetServiceClient {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

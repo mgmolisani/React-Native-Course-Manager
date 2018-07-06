@@ -3,6 +3,9 @@ import {Icon, ListItem, Text} from "react-native-elements";
 import React, {Component} from "react";
 import WidgetServiceClient from "../services/widgetService";
 
+/**
+ * Represents a widget list
+ */
 export default class WidgetList
     extends Component {
 
@@ -31,6 +34,10 @@ export default class WidgetList
         this.refresh();
     }
 
+    /**
+     * Function called whenever this screen is navigated too
+     * It is passed to the other screens as a callback on unmount
+     */
     refresh() {
         this.widgetService
             .findAllWidgetsForLesson(
@@ -40,6 +47,10 @@ export default class WidgetList
                 });
     }
 
+    /**
+     * Sets the widgets
+     * @param widgets
+     */
     setWidgets(widgets) {
         this.setState({
             widgets: widgets.reduce((stateWidgets, widget) => {

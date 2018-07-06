@@ -19,11 +19,14 @@ import {
     TRUE_FALSE_BY_EXAM_API_URL
 } from "../constants/apiConstants";
 
+/**
+ * Question Editor
+ */
 export default class QuestionEditor
     extends Component {
 
     static navigationOptions = {
-        title: 'New Question',
+        title: 'Question',
         headerStyle: {
             backgroundColor: 'rebeccapurple'
         },
@@ -55,6 +58,9 @@ export default class QuestionEditor
         this.state.refreshParent();
     }
 
+    /**
+     * Determines if this is to edit or create a question
+     */
     refresh() {
         if (this.state.questionId !== null) {
             this.questionService
@@ -67,6 +73,10 @@ export default class QuestionEditor
         }
     }
 
+    /**
+     * Gets the service url based on the type
+     * @returns {*}
+     */
     getUrl() {
         const questionType = Object.values(questionTypes)[this.state.questionType];
         switch (questionType) {
@@ -83,6 +93,10 @@ export default class QuestionEditor
         }
     }
 
+    /**
+     * Gets the by exam service url based on type
+     * @returns {*}
+     */
     getUrlByExam() {
         const questionType = Object.values(questionTypes)[this.state.questionType];
         switch (questionType) {
@@ -99,18 +113,34 @@ export default class QuestionEditor
         }
     }
 
+    /**
+     * Updates the state
+     * @param update
+     */
     updateForm(update) {
         this.setState(update);
     }
 
+    /**
+     * changes the type based on what button is pushed.  This is passed to the element.
+     * @param itemValue
+     */
     changeQuestionType(itemValue) {
         this.setState({questionType: itemValue});
     }
 
+    /**
+     * Another state changer.....
+     * @param questionInfo
+     */
     setQuestionInfo(questionInfo) {
         this.setState({...questionInfo})
     }
 
+    /**
+     * Renders the correct type of question editor
+     * @returns {*}
+     */
     renderQuestionInfo() {
         const questionType = Object.values(questionTypes)[this.state.questionType];
         switch (questionType) {

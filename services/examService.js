@@ -8,6 +8,9 @@ function errorCallback(data) {
     throw new Error(data.message);
 }
 
+/**
+ * Exam services
+ */
 export default class ExamServiceClient {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

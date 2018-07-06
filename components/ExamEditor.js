@@ -12,18 +12,15 @@ import {
 import React, {Component} from "react";
 import {questionTypes, styles} from "../constants/appConstants";
 import examServiceClient from "../services/examService";
-import {
-    BLANK_BY_EXAM_API_URL,
-    CHOICE_BY_EXAM_API_URL,
-    ESSAY_BY_EXAM_API_URL,
-    TRUE_FALSE_BY_EXAM_API_URL
-} from "../constants/apiConstants";
 
+/**
+ * Represents the base of the exam editor
+ */
 export default class ExamEditor
     extends Component {
 
     static navigationOptions = {
-        title: 'New Exam',
+        title: 'Exam',
         headerStyle: {
             backgroundColor: 'rebeccapurple'
         },
@@ -53,6 +50,10 @@ export default class ExamEditor
         this.refresh()
     }
 
+    /**
+     * Called whenever this screen is navigated to to rerender
+     * Passed to navigated screens as a callback when unmounted
+     */
     refresh() {
         if (this.state.examId !== null) {
             this.examService
@@ -69,14 +70,26 @@ export default class ExamEditor
         }
     }
 
+    /**
+     * Callback to widget list to update
+     */
     componentWillUnmount() {
         this.state.refreshParent();
     }
 
+    /**
+     * Updates the state
+     * @param update
+     */
     updateForm(update) {
         this.setState(update);
     }
 
+    /**
+     * Sets the questions in the state to the correct format
+     * @param questions
+     * @returns {*}
+     */
     setQuestions(questions) {
         return questions.reduce((stateQuestions, question) => {
             stateQuestions.byId[question.id] = question;

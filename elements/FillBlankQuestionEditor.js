@@ -4,11 +4,19 @@ import QuestionPreview from "./QuestionPreview";
 import {View} from "react-native";
 import {FormInput, Text} from "react-native-elements";
 
-
+/**
+ * Checks if two objects are shallow equal (for knowing to rerender or not in will receive props)
+ * @param a
+ * @param b
+ * @returns {boolean}
+ */
 function areAnswersEqual(a, b) {
     return Object.keys(a).length === Object.keys(b).length && Object.keys(a).every(key => a[key] === b[key])
 }
 
+/**
+ * Element to handle fill in the blank specific editing
+ */
 export default class FillBlankQuestionEditor
     extends Component {
 
@@ -16,12 +24,21 @@ export default class FillBlankQuestionEditor
         this.updateAnswers()
     }
 
+    /**
+     * Rerender if required
+     * @param nextProps
+     * @param nextContext
+     */
     componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.description !== this.props.description) {
             this.updateAnswers(nextProps);
         }
     }
 
+    /**
+     * Updates the currently stored answers if they are not already equal
+     * @param props
+     */
     updateAnswers(props = this.props) {
         const description = props.description;
         const answersArray = description.match(new RegExp(BLANK_REGEX_STRING, 'g'));
@@ -41,6 +58,10 @@ export default class FillBlankQuestionEditor
         }
     }
 
+    /**
+     * Renders the blanks (incredibly annoying on mobile)
+     * @returns {Array}
+     */
     getBlanks() {
         const description = this.props.description;
         const textArray = description.split(new RegExp(BLANK_REGEX_STRING, 'g'));

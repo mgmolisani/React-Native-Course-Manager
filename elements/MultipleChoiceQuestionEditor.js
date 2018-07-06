@@ -3,6 +3,9 @@ import QuestionPreview from "./QuestionPreview";
 import {View} from "react-native";
 import {Button, Card, FormInput, ListItem} from "react-native-elements";
 
+/**
+ * Element to handle multiple choice specific editing
+ */
 export default class MultipleChoiceQuestionEditor
     extends Component {
 
@@ -13,6 +16,9 @@ export default class MultipleChoiceQuestionEditor
         }
     }
 
+    /**
+     * Adds a new choice
+     */
     addChoice() {
         let choices = [...this.props.choices];
         choices.push(this.state.newChoiceText);
@@ -20,14 +26,26 @@ export default class MultipleChoiceQuestionEditor
         this.setState({newChoiceText: ''})
     }
 
+    /**
+     * Sets the correct answer (click on choice)
+     * @param correctChoice
+     */
     changeCorrectAnswer(correctChoice) {
         this.props.setQuestionInfo({correctChoice})
     }
 
+    /**
+     * For the preview, chances what is picked
+     * @param pickedChoice
+     */
     changePickedAnswer(pickedChoice) {
         this.setState({pickedChoice})
     }
 
+    /**
+     * Removes a choice (click on trash)
+     * @param index
+     */
     removeChoice(index) {
         let choices = [...this.props.choices];
         choices.splice(index, 1);
@@ -37,6 +55,10 @@ export default class MultipleChoiceQuestionEditor
         this.props.setQuestionInfo({choices});
     }
 
+    /**
+     * Renders the choice list
+     * @returns {any[]}
+     */
     renderChoices() {
         return this.props.choices.map((choice, index) => (
             <ListItem key={index}
@@ -65,6 +87,10 @@ export default class MultipleChoiceQuestionEditor
         )
     }
 
+    /**
+     * Renders the preview choice list
+     * @returns {any[]}
+     */
     renderPreviewChoices() {
         return this.props.choices.map((choice, index) => (
             <ListItem key={index}

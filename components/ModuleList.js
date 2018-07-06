@@ -3,6 +3,12 @@ import {ListItem} from "react-native-elements";
 import {MODULE_API_URL} from "../constants/apiConstants";
 import React, {Component} from "react";
 
+/**
+ * Find modules for course service
+ * @param courseId
+ * @param callback
+ * @returns {Promise<T>}
+ */
 function findAllModulesForCourse(courseId, callback) {
     return fetch(MODULE_API_URL
         .replace('CID', courseId))
@@ -11,6 +17,9 @@ function findAllModulesForCourse(courseId, callback) {
         }).then(callback);
 }
 
+/**
+ * Represents a module list
+ */
 export default class ModuleList
     extends Component {
 
@@ -27,6 +36,9 @@ export default class ModuleList
         }
     }
 
+    /**
+     * Adds the modules to the list on load
+     */
     componentDidMount() {
         findAllModulesForCourse(this.state.courseId,
             modules => {
@@ -34,6 +46,10 @@ export default class ModuleList
             });
     }
 
+    /**
+     * Sets the modules to the state
+     * @param modules the modules to set
+     */
     setModules(modules) {
         this.setState({
             modules: modules.reduce((stateModules, module) => {

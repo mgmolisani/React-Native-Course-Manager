@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import {questionTypes} from "../constants/appConstants";
 import {ButtonGroup} from "react-native-elements";
 
+/**
+ * Element to handle choosing the type of question
+ * Only visible during creation
+ */
 export default class QuestionTypeGroup
     extends Component {
 

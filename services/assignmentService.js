@@ -8,6 +8,9 @@ function errorCallback(data) {
     throw new Error(data.message);
 }
 
+/**
+ * Assignment services
+ */
 export default class AssignmentServiceClient {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

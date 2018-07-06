@@ -3,6 +3,11 @@ import {ListItem} from "react-native-elements";
 import {COURSE_API_URL} from "../constants/apiConstants";
 import React, {Component} from "react";
 
+/**
+ * Find all courses service
+ * @param callback
+ * @returns {Promise<T>}
+ */
 function findAllCourses(callback) {
     return fetch(COURSE_API_URL)
         .then(function (response) {
@@ -10,6 +15,9 @@ function findAllCourses(callback) {
         }).then(callback);
 }
 
+/**
+ * Represents the course list
+ */
 export default class CourseList
     extends Component {
 
@@ -25,14 +33,20 @@ export default class CourseList
         }
     }
 
+    /**
+     * Gets courses
+     */
     componentDidMount() {
         findAllCourses(courses => {
             this.setCourses(courses);
         });
     }
 
+    /**
+     * Sets courses to state
+     * @param courses the courses
+     */
     setCourses(courses) {
-
         this.setState({
             courses: courses.reduce((stateCourses, course) => {
                 stateCourses.byId[course.id] = course;

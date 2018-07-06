@@ -7,6 +7,9 @@ function errorCallback(data) {
     throw new Error(data.message);
 }
 
+/**
+ * Question services (differentiated by the input URL arg)
+ */
 export default class QuestionServiceClient {
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

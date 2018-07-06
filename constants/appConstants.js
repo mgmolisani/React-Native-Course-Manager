@@ -1,5 +1,9 @@
 import {StyleSheet} from "react-native";
 
+/**
+ * Question type enumeration
+ * @type {{MULTIPLE_CHOICE: string, ESSAY: string, TRUE_FALSE: string, FILL_BLANK: string}}
+ */
 export const questionTypes = {
     MULTIPLE_CHOICE: 'Multiple Choice',
     ESSAY: 'Essay',
@@ -7,6 +11,9 @@ export const questionTypes = {
     FILL_BLANK: 'Fill in the Blank'
 };
 
+/**
+ * Frequently used styles
+ */
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
@@ -24,4 +31,8 @@ export const styles = StyleSheet.create({
     }
 });
 
+/**
+ * regex for the fill in the blanks
+ * @type {string}
+ */
 export const BLANK_REGEX_STRING = '\\[[A-Za-z_]\\w*?=\\w+]';
