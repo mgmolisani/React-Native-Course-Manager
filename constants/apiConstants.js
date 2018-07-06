@@ -1,0 +1,16 @@
+export const COURSE_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/course';
+export const MODULE_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/course/CID/module';
+export const LESSON_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/course/CID/module/MID/lesson';
+export const WIDGET_BY_LESSON_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/lesson/LID/widget';
+export const ASSIGNMENT_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/assignment';
+export const ASSIGNMENT_BY_LESSON_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/lesson/LID/assignment';
+export const EXAM_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/exam';
+export const EXAM_BY_LESSON_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/lesson/LID/exam';
+export const ESSAY_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/essay';
+export const ESSAY_BY_EXAM_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/exam/EID/essay';
+export const CHOICE_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/choice';
+export const CHOICE_BY_EXAM_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/exam/EID/choice';
+export const BLANK_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/blank';
+export const BLANK_BY_EXAM_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/exam/EID/blank';
+export const TRUE_FALSE_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/truefalse';
+export const TRUE_FALSE_BY_EXAM_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/exam/EID/truefalse';
